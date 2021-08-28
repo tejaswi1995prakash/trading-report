@@ -9,7 +9,9 @@ import plotly.graph_objects as go
 """
 # TRADING REPORT
 """
-df = pd.read_excel(r'C:\Users\Tejas\Desktop\Trading\Trading journal.xlsx')
+url= 'https://github.com/tejaswi1995prakash/trading-report/blob/main/Trading%20journal.xlsx'
+get_content = requests.get(url).content
+df = pd.read_excel(io.StringIO(get_content .decode('utf-8')))
 
 
 df_IB = df[(df['System'] == 'IBFD_Invertir')].reset_index().drop(columns = ['index'])
